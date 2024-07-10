@@ -8,6 +8,8 @@ const io = require("socket.io")(server, {
   },
 });
 
+const socketPort = process.env.SOCKET_PORT || 5000;
+
 io.on("connection", (socket) => {
   console.log("What is Socket: ", socket);
   console.log("Socket is active to be connected");
@@ -17,6 +19,6 @@ io.on("connection", (socket) => {
   });
 });
 
-// app.listen(5000, () => console.log("Server is active..."));
+// app.listen(`${port}`, () => console.log("Server is active..."));
 
-server.listen(5000, () => console.log("Server is running..."));
+server.listen(`${socketPort}`, () => console.log("Server is running..."));
