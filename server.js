@@ -8,6 +8,10 @@ const io = require("socket.io")(server, {
   },
 });
 
+app.get("/getconnection", (req, res, next) => {
+  res.status(200).json({ message: "connection established" });
+});
+
 const socketPort = process.env.SOCKET_PORT || 5000;
 
 io.on("connection", (socket) => {
