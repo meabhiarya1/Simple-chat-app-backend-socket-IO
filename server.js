@@ -1,13 +1,14 @@
 const app = require("express")();
-
 const server = require("http").createServer(app);
 const cors = require("cors");
+app.use(cors());
+
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
   },
 });
-app.use(cors());
+
 app.get("/getconnection", (req, res, next) => {
   res.status(200).json({ message: "connection established" });
 });
